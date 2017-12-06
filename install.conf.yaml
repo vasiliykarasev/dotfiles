@@ -3,5 +3,6 @@
     ~/.gitconfig: .gitconfig
     ~/.aliases: .aliases
     ~/.functions: .functions
+    ~/.profile: .profile
 
 - shell: []
