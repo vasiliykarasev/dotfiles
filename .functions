@@ -1,0 +1,33 @@
+# Concatenate images with ImageMagick. 
+function horizontalimagecat() {
+  convert +append $1 $2 $3
+}
+function verticalimagecat() {
+  convert -append $1 $2 $3
+}
+
+# Combine two videos into one. This should preserve audio tracks.
+function horizontalcat {
+  ffmpeg -i $1 -i $2 -filter_complex hstack -q:v 1 $3
+}
+function verticalcat {
+  ffmpeg -i $1 -i $2 -filter_complex vstack -q:v 1 $3
+}
+
+# Picked from: https://github.com/jessfraz/dotfiles/blob/master/.functions
+# Create a new directory and enter it
+mkd() {
+	mkdir -p "$@"
+	cd "$@" || exit
+}
+
+# Make a temporary directory and enter it
+tmpd() {
+	local dir
+	if [ $# -eq 0 ]; then
+		dir=$(mktemp -d)
+	else
+		dir=$(mktemp -d -t "${1}.XXXXXXXXXX")
+	fi
+	cd "$dir" || exit
+}

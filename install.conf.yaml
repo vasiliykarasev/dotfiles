@@ -1,3 +1,7 @@
 - clean: []
-- link: {}
+- link:
+    ~/.gitconfig: .gitconfig
+    ~/.aliases: .aliases
+    ~/.functions: .functions
+
 - shell: []

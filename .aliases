@@ -1,0 +1,14 @@
+# Picked from: https://github.com/jessfraz/dotfiles/blob/master/.aliases
+# Easier navigation: .., ..., ...., ....., ~ and -
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+
+# Shortcuts
+alias dl="cd ~/Downloads"
+alias g="git"
+alias h="history"
+alias q="nautilus . &"
+# Always enable colored `grep` output
+alias grep="grep --color=auto "
+
