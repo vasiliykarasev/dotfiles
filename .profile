@@ -24,8 +24,8 @@ fi
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
 # * ~/.extra can be used for other settings you don’t want to commit.
-for file in ~/.dotfiles/.{aliases,functions,extra}; do
-	if [[ -r "$file" ]] && [[ -f "$file" ]]; then
+for file in ~/.{aliases,functions,extra}; do
+  if [[ -r "$file" ]] && [[ -f "$file" ]]; then
 		# shellcheck source=/dev/null
 		echo Sourcing "$file"
     source "$file"
