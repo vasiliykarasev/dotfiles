@@ -7,6 +7,7 @@
 # the default umask is set in /etc/profile; for setting the umask
 # for ssh logins, install and configure the libpam-umask package.
 #umask 022
+echo "Loading .profile"
 
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
@@ -25,6 +26,7 @@ fi
 # * ~/.path can be used to extend `$PATH`.
 # * ~/.extra can be used for other settings you don’t want to commit.
 for file in ~/.{aliases,functions,extra}; do
+  echo "$file"
   if [[ -r "$file" ]] && [[ -f "$file" ]]; then
 		# shellcheck source=/dev/null
 		echo Sourcing "$file"
