@@ -32,3 +32,7 @@ for file in ~/.{aliases,functions,extra}; do
 	fi
 done
 unset file
+
+# kill touchscreen on Dell XPS15.
+xinput set-prop "ELAN Touchscreen" "Device Enabled" 0
+

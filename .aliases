@@ -12,3 +12,6 @@ alias q="nautilus . &"
 # Always enable colored `grep` output
 alias grep="grep --color=auto "
 
+alias мшь=vim
+
+alias cat="bat"

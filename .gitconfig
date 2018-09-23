@@ -3,8 +3,9 @@
 	name = vasiliy
 [core]
 	editor = vim
+	pager = diff-so-fancy | less --tabs=4 -RFX
 [clangFormat]
-	binary = clang-format-3.6
+  binary = clang-format-4.0
 [color]
   ui = auto
 [alias]
