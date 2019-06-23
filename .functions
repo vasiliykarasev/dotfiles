@@ -20,9 +20,15 @@ function extract_video_sequence {
   ffmpeg -ss $3 -i $1 -t $4 -vcodec copy -acodec copy $2
 }
 #
-
 function nvidia_query {
   nvidia-smi --query-gpu=temperature.gpu,clocks.current.sm,power.draw,utilization.gpu,utilization.memory,memory.free --format=csv | column -t -s ,
+}
+
+function ggp {
+  git grep "$1" -- "*.proto"
+}
+function ggh {
+  git grep "$1" -- "*.h"
 }
 
 # Picked from: https://github.com/jessfraz/dotfiles/blob/master/.functions

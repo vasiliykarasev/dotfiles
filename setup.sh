@@ -1,5 +1,5 @@
 #!/bin/bash
-if false
+if true
   then
   echo "Lets install BAT"
   BAT_DEB=/tmp/bat_0.7.0_amd64.deb
@@ -7,7 +7,7 @@ if false
   sudo dpkg -i ${BAT_DEB}
 fi
 
-if false
+if true
   then
   echo "Lets install FZF"
   FZF_PATH=/tmp/fzf
