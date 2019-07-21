@@ -4,5 +4,6 @@
     ~/.aliases: .aliases
     ~/.functions: .functions
     ~/.profile: .profile
+    ~/.vimrc: .vimrc
 
 - shell: []

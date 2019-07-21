@@ -10,7 +10,7 @@ fi
 if true
   then
   echo "Lets install FZF"
-  FZF_PATH=/tmp/fzf
+  FZF_PATH=${HOME}/Sandbox/fzf
   git clone --depth 1 https://github.com/junegunn/fzf.git ${FZF_PATH}
   ${FZF_PATH}/./install
 fi
