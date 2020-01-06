@@ -15,6 +15,9 @@ Plugin 'google/vim-glaive'
 Plugin 'scrooloose/nerdtree'
 Plugin 'vim-airline/vim-airline'
 Plugin 'tpope/vim-fugitive'
+Plugin 'bazelbuild/vim-bazel'
+Plugin 'wincent/terminus'
+
 "Plugin 'davidhalter/jedi-vim'
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -61,4 +64,9 @@ colorscheme default
 :hi ColorColumn ctermbg=darkgrey guibg=darkgrey
 set tags=./tags,tags;$HOME
 
+" Show whitespaces and other random hidden characters. 
+set listchars=tab:>-,trail:·
+set list
 
+" This prevents you from scrolling into infinity past the file's end.
+let g:TerminusMouse=0

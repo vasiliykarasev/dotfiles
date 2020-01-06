@@ -16,3 +16,6 @@ alias grep="grep --color=auto "
 alias мшь=vim
 
 alias cat="bat"
+
+alias bb="bazel build"
+alias br="bazel run"
