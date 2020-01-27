@@ -1,17 +1,26 @@
 [user]
-	email = karasev00@gmail.com
-	name = vasiliy
+  email = karasev00@gmail.com
+  name = vasiliy
 [core]
 	editor = vim
-	pager = diff-so-fancy | less --tabs=4 -RFX
+    #pager = diff-so-fancy | less --tabs=4 -RFX
+    pager = diff-so-fancy | less --tabs=4 -RFX
 [clangFormat]
   binary = clang-format-4.0
 [color]
   ui = auto
+[color "grep"]
+  linenumber = yellow bold
+  match = red
+  filename = magenta     
+
 [alias]
   s = status -s
   st = status
   co = checkout
+  p = pull
   # View abbreviated SHA, description, and history graph of the latest 20 commits
   l = log --pretty=oneline -n 20 --graph --abbrev-commit
   branches = branch -a
+[push]
+	default = current

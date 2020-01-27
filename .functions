@@ -60,3 +60,10 @@ function gitrecent {
 function gr {
   gitrecent
 }
+
+# Update time via NTP. Before doing that you presumably previously did:
+#   sudo apt-get install ntpdate
+# This is needed if your BIOS battery is old and clock is skewed.
+function update_time() {
+  sudo ntpdate 1.ro.pool.ntp.org
+}
