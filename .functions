@@ -67,3 +67,7 @@ function gr {
 function update_time() {
   sudo ntpdate 1.ro.pool.ntp.org
 }
+
+function fvim {
+  vim $(find -iname "$1")
+}
