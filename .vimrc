@@ -1,78 +1,71 @@
-syntax on
-set backspace=indent,eol,start
-set tabstop=4 softtabstop=0 expandtab shiftwidth=2 smarttab
-set colorcolumn=80
-hi ColorColumn ctermbg=darkgrey guibg=lightgrey
-set number
-
-filetype indent on
-filetype plugin on
-
-set tags=./tags,tags;$HOME
-
+set backspace=2
+:syntax on
 set nocompatible              " be iMproved, required
 filetype off                  " required
+set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
+set colorcolumn=80
+hi ColorColumn ctermbg=darkgrey guibg=darkgrey
+:set expandtab
+:set hlsearch
+set colorcolumn=80
+colorscheme default
+set tags=./tags,tags;$HOME
 
-" let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'  
-" Shut up about extra-conf options.
-let g:ycm_extra_conf_globlist = ['~/*']
+
+
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-" let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-" Plugin 'valloric/YouCompleteMe'
 
-" Add maktaba and codefmt to the runtimepath.
-Plugin 'google/vim-maktaba'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'bazelbuild/vim-bazel'
+Plugin 'flazz/vim-colorschemes'
 Plugin 'google/vim-codefmt'
 Plugin 'google/vim-glaive'
-Plugin 'octol/vim-cpp-enhanced-highlight'
-Plugin 'tpope/vim-fugitive'
+Plugin 'google/vim-maktaba'
 Plugin 'junegunn/fzf.vim'
-Plugin 'wincent/terminus'
-Plugin 'vim-airline/vim-airline'
 Plugin 'leafgarland/typescript-vim'
-Plugin 'bazelbuild/vim-bazel'
+Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-fugitive'
+Plugin 'vim-airline/vim-airline'
+Plugin 'wincent/terminus'
+"Plugin 'davidhalter/jedi-vim'
+call vundle#end()            " required
+filetype plugin indent on    " required
 
-call vundle#end() " required
 call glaive#Install()
-
-let g:cpp_experimental_simple_template_highlight = 0
-let g:cpp_experimental_template_highlight = 0
-
+" Optional: Enable codefmt's default mappings on the <Leader>= prefix.
 Glaive codefmt plugin[mappings]
 Glaive codefmt google_java_executable="java -jar /path/to/google-java-format-VERSION-all-deps.jar"
-
-filetype plugin indent on    " required
 
 " let g:ycm_global_ycm_extra_conf='~/.ycm_extra_conf.py'
 let g:ycm_collect_identifiers_from_tags_files=1
 let g:ycm_allow_changing_updatetime = 0
 let g:ycm_show_diagnostics_ui = 0
-" To ignore plugin indent changes, instead use:
-"
-"
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
 
-:Glaive codefmt clang_format_executable='clang-format-3.6'
+
+" :Glaive codefmt clang_format_executable='clang-format-3.6'
 augroup autoformat_settings
   autocmd FileType bzl AutoFormatBuffer buildifier
-  autocmd FileType c,cpp AutoFormatBuffer clang-format
-  " autocmd FileType proto AutoFormatBuffer clang-format
-  " autocmd FileType python AutoFormatBuffer yapf " this is way way too slow.
-  " Alternative: autocmd FileType python AutoFormatBuffer autopep8
+  autocmd FileType c,cpp,proto AutoFormatBuffer clang-format
+  "autocmd FileType html,css,json AutoFormatBuffer js-beautify
+  "autocmd FileType python AutoFormatBuffer yapf
 augroup END
 
-:set hlsearch
+" 4 spaces is the default indentation performed by yapf (see above).
+autocmd FileType python setlocal shiftwidth=4 tabstop=4
+
+" Help bazel figure out bazel syntax.
+autocmd BufNewFile,BufRead *.BUILD set syntax=bzl
+autocmd BufNewFile,BufRead WORKSPACE set syntax=bzl
+
+let g:ycm_global_ycm_extra_conf = "/home/vasiliy/.ycm_extra_conf.py"
+let g:ycm_confirm_extra_conf = 0
+let g:ycm_show_diagnostics_ui = 0
 
 " Show whitespaces and other random hidden characters. 
 set listchars=tab:>-,trail:·
@@ -120,7 +113,12 @@ function! BazelRunThis()
   :call BazelGetCurrentBufTarget()
   :execute '!brun ' . g:current_bazel_target
 endfunction
-
+ 
 command! BazelBuildThis call BazelBuildThis()
 command! BazelRunThis call BazelRunThis()
+
+" %% points to the current file's directory.
+cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
+" Inverse of "go-to-file" (consider as "back-from-file")
+nmap bf <C-o>
 

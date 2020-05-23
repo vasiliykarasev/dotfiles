@@ -7,13 +7,12 @@
 # the default umask is set in /etc/profile; for setting the umask
 # for ssh logins, install and configure the libpam-umask package.
 #umask 022
-ecryptfs-mount-private
 
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
     # include .bashrc if it exists
     if [ -f "$HOME/.bashrc" ]; then
-	. "$HOME/.bashrc"
+  . "$HOME/.bashrc"
     fi
 fi
 
@@ -27,10 +26,10 @@ fi
 # * ~/.extra can be used for other settings you don’t want to commit.
 for file in ~/.{aliases,functions,extra}; do
   if [[ -r "$file" ]] && [[ -f "$file" ]]; then
-		# shellcheck source=/dev/null
-		echo Sourcing "$file"
+    # shellcheck source=/dev/null
+    echo Sourcing "$file"
     source "$file"
-	fi
+  fi
 done
 unset file
 
