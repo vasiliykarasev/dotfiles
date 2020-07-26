@@ -1,7 +1,8 @@
-# Concatenate images with ImageMagick. 
+# Concatenate images with ImageMagick.
 function horizontalimagecat() {
   convert +append $1 $2 $3
 }
+
 function verticalimagecat() {
   convert -append $1 $2 $3
 }
@@ -38,19 +39,19 @@ gghe(){
 # Picked from: https://github.com/jessfraz/dotfiles/blob/master/.functions
 # Create a new directory and enter it
 mkd() {
-	mkdir -p "$@"
-	cd "$@" || exit
+  mkdir -p "$@"
+  cd "$@" || exit
 }
 
 # Make a temporary directory and enter it
 tmpd() {
-	local dir
-	if [ $# -eq 0 ]; then
-		dir=$(mktemp -d)
-	else
-		dir=$(mktemp -d -t "${1}.XXXXXXXXXX")
-	fi
-	cd "$dir" || exit
+  local dir
+  if [ $# -eq 0 ]; then
+    dir=$(mktemp -d)
+  else
+    dir=$(mktemp -d -t "${1}.XXXXXXXXXX")
+  fi
+  cd "$dir" || exit
 }
 
 function gitrecent {
@@ -70,4 +71,16 @@ function update_time() {
 
 function fvim {
   vim $(find -iname "$1")
+}
+
+# Create ctags (for a C++ project)
+function make_ctags {
+  ctags --c++-kinds=+p --fields=+iaS --extra=+q --language-force=C++ -R *
+}
+
+# It is summer in New York, it is hot, and there is no aircon.
+function disable_cpu {
+  echo "Disabling cpu$1"
+  sudo chmod 777 /sys/devices/system/cpu/cpu$1/online
+  echo 0 > "/sys/devices/system/cpu/cpu$1/online"
 }
