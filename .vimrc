@@ -1,7 +1,7 @@
-set backspace=2
 :syntax on
 set nocompatible              " be iMproved, required
 filetype off                  " required
+set backspace=2
 set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
 set colorcolumn=80
 hi ColorColumn ctermbg=darkgrey guibg=darkgrey
@@ -13,14 +13,13 @@ set tags=./tags,tags;$HOME
 
 
 
-
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe'
 Plugin 'bazelbuild/vim-bazel'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'google/vim-codefmt'
@@ -57,7 +56,7 @@ augroup autoformat_settings
 augroup END
 
 " 4 spaces is the default indentation performed by yapf (see above).
-autocmd FileType python setlocal shiftwidth=4 tabstop=4
+autocmd FileType python setlocal shiftwidth=2 tabstop=2
 
 " Help bazel figure out bazel syntax.
 autocmd BufNewFile,BufRead *.BUILD set syntax=bzl
@@ -122,3 +121,12 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 " Inverse of "go-to-file" (consider as "back-from-file")
 nmap bf <C-o>
 
+filetype off
+set backspace=2
+set tabstop=2
+set softtabstop=0 "expandtab
+set shiftwidth=2 "smarttab
+set colorcolumn=80
+filetype on
+
+set tabstop=2 shiftwidth=2 expandtab
