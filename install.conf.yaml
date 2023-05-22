@@ -6,5 +6,7 @@
     ~/.profile: .profile
     ~/.vimrc: .vimrc
     ~/.ctags: .ctags
+    ~/.config/terminator/config: terminator_config
+    ~/.config/pyink: pyink_config
 
 - shell: []

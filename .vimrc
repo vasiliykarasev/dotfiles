@@ -40,7 +40,7 @@ call glaive#Install()
 " Optional: Enable codefmt's default mappings on the <Leader>= prefix.
 Glaive codefmt plugin[mappings]
 Glaive codefmt google_java_executable="java -jar /path/to/google-java-format-VERSION-all-deps.jar"
-
+Glaive codefmt black_executable="pyink"
 " let g:ycm_global_ycm_extra_conf='~/.ycm_extra_conf.py'
 let g:ycm_collect_identifiers_from_tags_files=1
 let g:ycm_allow_changing_updatetime = 0

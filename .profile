@@ -34,7 +34,10 @@ done
 unset file
 
 # kill touchscreen on Dell XPS15.
-xinput set-prop "ELAN Touchscreen" "Device Enabled" 0
+# xinput set-prop "ELAN Touchscreen" "Device Enabled" 0
 
 # Make LS great again.
 export QUOTING_STYLE=literal
+
+# Disable bluetooth visibility
+#sudo hciconfig hci0 noscan
