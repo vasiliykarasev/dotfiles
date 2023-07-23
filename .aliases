@@ -21,3 +21,5 @@ alias bb="bazel build"
 alias br="bazel run"
 alias bt="bazel test"
 alias blaze="bazel"
+alias ls="lsd"
+alias l=ls

@@ -22,3 +22,18 @@ then
   sudo wget https://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_party/build_fatpack/diff-so-fancy -O ${DIFF_SO_FANCY} && sudo chmod +x ${DIFF_SO_FANCY}
   git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
 fi
+
+if true
+then
+  echo "Let's install lsd"
+  LSD=/tmp/lsd.deb
+  sudo wget https://github.com/lsd-rs/lsd/releases/download/0.23.1/lsd_0.23.1_amd64.deb -O ${LSD} && sudo dpjg -i ${LSD}
+if
+if true
+then
+  echo "lsd needs nerdfonts"
+  wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/3270.zip -O /tmp/3270.zip
+  unzip /tmp/3270.zip
+  mv 3270* ~/.fonts/
+fi
+

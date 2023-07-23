@@ -39,5 +39,4 @@ unset file
 # Make LS great again.
 export QUOTING_STYLE=literal
 
-# Disable bluetooth visibility
-#sudo hciconfig hci0 noscan
+export PATH=$PATH:/usr/local/go/bin
