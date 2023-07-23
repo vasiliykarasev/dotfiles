@@ -130,3 +130,7 @@ set colorcolumn=80
 filetype on
 
 set tabstop=2 shiftwidth=2 expandtab
+
+" Remap Ctrl+Backspace to delete, to match Chromebook behavior.
+map!  <Del>
+map  <Del>
