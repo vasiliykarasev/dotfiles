@@ -84,3 +84,8 @@ function disable_cpu {
   sudo chmod 777 /sys/devices/system/cpu/cpu$1/online
   echo 0 > "/sys/devices/system/cpu/cpu$1/online"
 }
+
+function louder {
+  pactl list short sinks | grep bluez
+  echo "Now you run \"pactl -- set-sink-volume N 150%\""
+}

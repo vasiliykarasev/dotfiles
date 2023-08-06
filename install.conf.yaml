@@ -9,5 +9,7 @@
     ~/.config/terminator/config: terminator_config
     ~/.config/pyink: pyink_config
     ~/.config/lsd/config.yaml: lsd_config.yaml
+    ~/.inputrc: inputrc
+    ~/.tmux.conf: .tmux.conf
 
 - shell: []

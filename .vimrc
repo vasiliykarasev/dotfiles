@@ -55,6 +55,7 @@ augroup autoformat_settings
   "autocmd FileType python AutoFormatBuffer yapf
 augroup END
 
+autocmd FileType python let b:codefmt_formatter = 'black'
 " 4 spaces is the default indentation performed by yapf (see above).
 autocmd FileType python setlocal shiftwidth=2 tabstop=2
 
@@ -66,7 +67,7 @@ let g:ycm_global_ycm_extra_conf = "/home/vasiliy/.ycm_extra_conf.py"
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_show_diagnostics_ui = 0
 
-" Show whitespaces and other random hidden characters. 
+" Show whitespaces and other random hidden characters.
 set listchars=tab:>-,trail:·
 set list
 
@@ -96,7 +97,7 @@ let g:typescript_indent_disable = 1
 " Hacks taken from https://github.com/bazelbuild/vim-bazel/issues/4
 function! BazelGetCurrentBufTarget()
   " Doing a bazel query is sadly very slow. It would be better just to parse
-  " the filename, get basename and remove the extension. 
+  " the filename, get basename and remove the extension.
   " This should work in many cases.
   let bazel_file_label=system("bazel query " . bufname("%") . " --color no --curses no --noshow_progress | tr -d '[:space:]'")
   let bazel_file_package=split(bazel_file_label, ":")[0]
@@ -112,7 +113,7 @@ function! BazelRunThis()
   :call BazelGetCurrentBufTarget()
   :execute '!brun ' . g:current_bazel_target
 endfunction
- 
+
 command! BazelBuildThis call BazelBuildThis()
 command! BazelRunThis call BazelRunThis()
 

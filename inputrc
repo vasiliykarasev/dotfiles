@@ -1,0 +1,2 @@
+# Alt+Backspace = delete (same as a chromebook).
+"\e\177": delete-char
